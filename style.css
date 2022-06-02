@@ -1,0 +1,196 @@
+:root {
+  --white: #ffffff;
+  --cardWhite: #fffbf6;
+  --creamBg: #f8e9dd;
+  --mediumBrown: #92857a;
+  --darkBrown: #382314;
+  --cyan: #76b5bc;
+  --red: #ec755d;
+  --cardRadius: 10px;
+  --cardPadding: 24px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "DM Sans", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--creamBg);
+
+  /* flex */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  padding: 3rem 16px;
+  width: 100%;
+  max-width: 540px;
+}
+
+.topCard {
+  padding: 20px 24px 22px 22px;
+  border-radius: var(--cardRadius);
+  background-color: var(--red);
+  margin-bottom: 16px;
+  color: white;
+
+  /* grid */
+  /* display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto;
+  row-gap: 4px;
+
+  grid-template-areas:
+    "header logo"
+    "balance logo"; */
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topCard h1 {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+  margin-bottom: 4px;
+
+  /* grid-area: header; */
+}
+
+.topCard .balance {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 31px;
+
+  /* grid-area: balance; */
+}
+
+.topCard img {
+  width: 60px;
+  align-self: center;
+
+  /* grid-area: logo; */
+}
+
+.bottomCard {
+  background-color: var(--cardWhite);
+  border-radius: var(--cardRadius);
+  padding: 24px 20px;
+}
+
+.bottomCard h2 {
+  color: var(--darkBrown);
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 31px;
+}
+
+ul.graph {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  column-gap: 12px;
+  grid-template-rows: 178px;
+  align-items: end;
+  padding: 48px 0 24px;
+  border-bottom: 2px solid #f8e9dd;
+}
+
+ul.graph li {
+  text-align: center;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+  color: var(--mediumBrown);
+  position: relative;
+}
+
+ul.graph li .value {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 23px;
+  padding: 8px;
+  border-radius: 3px;
+  color: var(--cardWhite);
+  background-color: #382314;
+  opacity: 0;
+  transition: all 300ms ease-in-out;
+  z-index: 3;
+}
+
+ul.graph li .candleStick {
+  width: 100%;
+  height: 0px;
+  transition: height 2000ms ease-in-out;
+  border-radius: 3px;
+
+  background-color: var(--red);
+}
+
+ul.graph li.active .candleStick {
+  background-color: var(--cyan);
+}
+
+ul.graph li:hover .value,
+ul.graph li:focus .value {
+  top: -8px;
+  opacity: 1;
+}
+
+ul.graph li:hover .candleStick,
+ul.graph li:focus .candleStick {
+  filter: brightness(1.2);
+}
+
+.bottomCard .summary {
+  margin-top: 32px;
+}
+
+.summary h3 {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+  color: var(--mediumBrown);
+}
+
+.summary > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+  color: var(--mediumBrown);
+}
+
+.summary .monthTotal {
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 39px;
+  color: var(--darkBrown);
+}
+
+.summary .change {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 20px;
+  color: var(--darkBrown);
+}
+
+.attribution {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.8rem;
+}
